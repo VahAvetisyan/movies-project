@@ -29,11 +29,10 @@ function Profile() {
         });
     }, []);
 
-    console.log(imageUrls)
-
     return (
 
         <div className="Profile">
+            <div>
             {imageUrls.length ? 
                 imageUrls.map((url, i) => {
                     if (i === imageUrls.length - 1) {
@@ -50,6 +49,10 @@ function Profile() {
                 }}
             />
             <button id="upload-button" onClick={uploadFile}> Upload Image</button>
+            </div>
+            <div>
+                <h4></h4>
+            </div>
             
         </div>
     );

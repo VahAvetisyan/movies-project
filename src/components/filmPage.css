@@ -1,0 +1,29 @@
+#about-film {
+    color: white;
+    text-align: left;
+    margin: 50px;
+    margin-left: 0;
+}
+
+#film-picture {
+    margin: 50px;
+    width: 350px;
+    height: 500px;
+}
+
+.FilmPage {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+
+}
+
+.video {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 70px;
+}
+
+.video iframe {
+    margin-left: 50px;
+}

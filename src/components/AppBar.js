@@ -24,7 +24,7 @@ import { auth } from "../firebase/firebase";
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: (theme.palette.common.white, 0.15),
     '&:hover': {
         backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
@@ -161,7 +161,7 @@ function ResponsiveAppBar(props) {
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+                                        <Link style={{ textDecoration: "none", color: "black" }} to={`/${page}`}>
                                             {page}
                                         </Link>
                                     </Typography>
@@ -169,7 +169,7 @@ function ResponsiveAppBar(props) {
                             ))}
                         </Menu>
                     </Box>
-                    <LocalMoviesIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <LocalMoviesIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 3 }} />
                     <Typography
                         variant="h5"
                         noWrap
@@ -192,9 +192,9 @@ function ResponsiveAppBar(props) {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2,color: 'white', display: 'block' }}
                             >
-                                <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+                                <Link style={{ textDecoration: "none", color: "white", }} to={`/${page}`}>
                                     {page}
                                 </Link>
                             </Button>

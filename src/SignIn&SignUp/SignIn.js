@@ -33,6 +33,8 @@ function Copyright(props) {
     );
 }
 
+
+
 const theme = createTheme();
 
 export default function SignIn() {
@@ -44,6 +46,7 @@ export default function SignIn() {
         event.preventDefault();
         try {
             const userCred = await signInWithEmailAndPassword(auth, email, password);
+            console.log(userCred);
             window.location.history.back();
             console.log(userCred);
         } catch (error) {

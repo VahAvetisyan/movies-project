@@ -6,23 +6,24 @@ import Watchlist from './components/Watchlist';
 import SignIn from './SignIn&SignUp/SignIn'
 import SignUp from './SignIn&SignUp/SignUp';
 import Profile from './components/Profil';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedInUser, setUser } from './redux/reducers/userReducer';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/firebase';
+import FilmPage from "./components/FilmPage"
 
 
 function App() {
   const loggedInUser = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
+  const [selectedFilm, setSelectedFilm] = useState(null)
 
   React.useEffect(() => {
     onAuthStateChanged(auth, (u) => {
       dispatch(setUser(u?.email));
     });
   }, []);
-
   return (
     <div className="App">
       <div>
@@ -30,20 +31,22 @@ function App() {
       </div>
       <Routes>
         {loggedInUser?<>
-          <Route index path="/home/page-1" element={<Home />} />
+          <Route index path="/" element={<Home selectedFilm={setSelectedFilm} />} />
           <Route path="watchlist" element={<Watchlist />} />
           <Route path="profile" element={<Profile />} /> 
           <Route path="signIn" element={<Home />} />
           <Route path="signUp" element={<Home />} />
+          <Route path="film" element={<FilmPage selectedFilm={selectedFilm} />} />
         </>
         
         :    <>
 
-            <Route index path="/" element={<Home />} />
+            <Route index path="/" element={<Home selectedFilm={setSelectedFilm} />} />
             <Route path="watchlist" element={<SignIn />} />
             <Route path="signIn" element={<SignIn />} />
             <Route path="signUp" element={<SignUp />} />
             <Route path="profile" element={<Home />} /> 
+            <Route path="film" element={<FilmPage selectedFilm={selectedFilm} />} />
       
         </> 
 } 
